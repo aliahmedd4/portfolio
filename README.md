@@ -12,7 +12,7 @@
 
 ## Live Demo
 
-🌐 **[ali-hassan.dev](portfolio-production-8527.up.railway.app)**
+🌐 **[portfolio-production-8527.up.railway.app)**
 
 ---
 
