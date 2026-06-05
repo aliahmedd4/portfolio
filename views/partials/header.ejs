@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ali Hassan — Computer Science Student, Python Developer, Data Scientist, Full-Stack Engineer based in Cairo, Egypt." />
+  <title><%= pageTitle %></title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="/" class="nav-logo">
+      <span class="logo-bracket">&lt;</span>Ali.dev<span class="logo-bracket">/&gt;</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/" class="nav-link <%= currentPath === '/' ? 'active' : '' %>">Home</a></li>
+      <li><a href="/projects" class="nav-link <%= currentPath === '/projects' ? 'active' : '' %>">Projects</a></li>
+      <li><a href="/skills" class="nav-link <%= currentPath === '/skills' ? 'active' : '' %>">Skills</a></li>
+      <li><a href="/contact" class="nav-link <%= currentPath === '/contact' ? 'active' : '' %>">Contact</a></li>
+      <li><a href="/resume" class="nav-link nav-resume">Resume ↓</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>

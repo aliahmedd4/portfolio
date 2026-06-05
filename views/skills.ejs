@@ -1,0 +1,95 @@
+<%- include('partials/header') %>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <span class="section-tag reveal">Capabilities</span>
+      <h1 class="page-title reveal">Skills & Expertise</h1>
+      <p class="page-sub reveal">
+        From neural networks to board game logic — here's what I work with.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="skills-full-grid">
+      <% skillGroups.forEach((group, i) => { %>
+      <div class="skill-card reveal" style="--delay: <%= i * 0.1 %>s">
+        <div class="skill-card-header">
+          <span class="skill-icon"><%= group.icon %></span>
+          <h3 class="skill-group-title"><%= group.group %></h3>
+          <span class="skill-count"><%= group.skills.length %></span>
+        </div>
+        <div class="skill-tags">
+          <% group.skills.forEach(skill => { %>
+          <span class="tag tag-skill"><%= skill %></span>
+          <% }) %>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+
+  </div>
+</section>
+
+<!-- Languages Section -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">Communication</span>
+      <h2 class="section-title">Human Languages</h2>
+    </div>
+    <div class="langs-grid">
+      <% languages.forEach((lang, i) => { %>
+      <div class="lang-card reveal" style="--delay: <%= i * 0.1 %>s">
+        <div class="lang-card-header">
+          <span class="lang-card-name"><%= lang.name %></span>
+          <span class="lang-card-level"><%= lang.level %></span>
+        </div>
+        <div class="lang-bar lang-bar-lg">
+          <div class="lang-fill" data-width="<%= lang.percent %>"></div>
+        </div>
+        <span class="lang-percent"><%= lang.percent %>%</span>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<!-- Education Section -->
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">Background</span>
+      <h2 class="section-title">Education</h2>
+    </div>
+    <div class="edu-timeline">
+      <div class="edu-item reveal">
+        <div class="edu-dot"></div>
+        <div class="edu-content">
+          <span class="edu-date">2024 – Present</span>
+          <h3 class="edu-title"><%= profile.university %></h3>
+          <p class="edu-sub"><%= profile.degree %></p>
+          <div class="edu-badges">
+            <span class="edu-badge">GPA <%= profile.gpa %></span>
+            <span class="edu-badge">EST I <%= profile.est1 %></span>
+            <span class="edu-badge">EST II <%= profile.est2 %></span>
+          </div>
+        </div>
+      </div>
+      <div class="edu-item reveal">
+        <div class="edu-dot edu-dot-past"></div>
+        <div class="edu-content">
+          <span class="edu-date">2024</span>
+          <h3 class="edu-title"><%= profile.highSchool %></h3>
+          <p class="edu-sub"><%= profile.diploma %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>
