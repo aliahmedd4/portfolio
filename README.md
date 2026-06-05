@@ -12,7 +12,7 @@
 
 ## Live Demo
 
-🌐 **[portfolio-production-8527.up.railway.app)**
+🌐 **[portfolio-production-8527.up.railway.app](https://portfolio-production-8527.up.railway.app)**
 
 ---
 
@@ -201,7 +201,7 @@ PORT=3000
 CS Student @ German International University (GIU) · Cairo, Egypt
 
 - 📧 ali4.hassan6@gmail.com
-- 🌐 [ali-hassan.dev](https://ali-hassan.dev)
+- 🌐 [portfolio-production-8527.up.railway.app](https://portfolio-production-8527.up.railway.app)
 - 📞 +20 1013837800
 
 ---
