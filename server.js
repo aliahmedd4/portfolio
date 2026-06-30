@@ -45,9 +45,9 @@ app.get("/contact", (req, res) => {
 });
 
 app.get("/resume", (req, res) => {
-  const resumePath = path.join(__dirname, "public", "resume.pdf");
+  const resumePath = path.join(__dirname, "public", "Ali_Hassan_CV_v2.pdf");
   res.download(resumePath, "Ali_Hassan_Resume.pdf", (err) => {
-    if (err) {
+    if (err && !res.headersSent) {
       res.status(404).render("404", {
         ...siteData,
         currentPath: "",
