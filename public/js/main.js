@@ -6,30 +6,34 @@
   const toggle = document.getElementById("navToggle");
   const links  = document.getElementById("navLinks");
 
-  window.addEventListener("scroll", () => {
-    navbar.classList.toggle("scrolled", window.scrollY > 10);
-  }, { passive: true });
+  if (navbar) {
+    window.addEventListener("scroll", () => {
+      navbar.classList.toggle("scrolled", window.scrollY > 10);
+    }, { passive: true });
+  }
 
   if (toggle) {
+    function resetSpans() {
+      toggle.querySelectorAll("span").forEach(s => { s.style.transform = ""; s.style.opacity = ""; });
+    }
+
     toggle.addEventListener("click", () => {
       const open = links.classList.toggle("open");
       toggle.setAttribute("aria-expanded", open);
-      toggle.querySelectorAll("span").forEach((s, i) => {
-        if (open) {
-          if (i === 0) s.style.transform = "translateY(7px) rotate(45deg)";
-          if (i === 1) s.style.opacity  = "0";
-          if (i === 2) s.style.transform = "translateY(-7px) rotate(-45deg)";
-        } else {
-          s.style.transform = "";
-          s.style.opacity   = "";
-        }
-      });
+      if (open) {
+        const spans = toggle.querySelectorAll("span");
+        if (spans[0]) spans[0].style.transform = "translateY(7px) rotate(45deg)";
+        if (spans[1]) spans[1].style.opacity   = "0";
+        if (spans[2]) spans[2].style.transform = "translateY(-7px) rotate(-45deg)";
+      } else {
+        resetSpans();
+      }
     });
 
     links.querySelectorAll(".nav-link").forEach((a) => {
       a.addEventListener("click", () => {
         links.classList.remove("open");
-        toggle.querySelectorAll("span").forEach(s => { s.style.transform = ""; s.style.opacity = ""; });
+        resetSpans();
       });
     });
   }
@@ -84,13 +88,8 @@
   const el = document.getElementById("typingText");
   if (!el) return;
 
-  const roles = [
-    "Python Developer",
-    "Data Scientist",
-    "Full-Stack Engineer",
-    "ML Enthusiast",
-    "CS Student @ GIU",
-  ];
+  const roles = JSON.parse(el.dataset.roles || "[]");
+  if (!roles.length) return;
 
   let roleIndex = 0;
   let charIndex  = 0;
@@ -166,5 +165,25 @@
 
       if (noRes) noRes.style.display = visible === 0 ? "block" : "none";
     });
+  });
+})();
+
+/* =============================================
+   CONTACT FORM — mailto builder
+   ============================================= */
+(function () {
+  const form = document.getElementById("contactForm");
+  if (!form) return;
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const to      = form.dataset.email;
+    const name    = form.querySelector('[name="name"]').value.trim();
+    const from    = form.querySelector('[name="email"]').value.trim();
+    const subject = form.querySelector('[name="subject"]').value.trim();
+    const body    = form.querySelector('[name="body"]').value.trim();
+    const fullBody = `Name: ${name}\nEmail: ${from}\n\n${body}`;
+    window.location.href =
+      `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(fullBody)}`;
   });
 })();
