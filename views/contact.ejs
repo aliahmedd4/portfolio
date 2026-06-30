@@ -63,7 +63,7 @@
 
       <!-- Contact form -->
       <div class="contact-form-wrap reveal">
-        <form class="contact-form" id="contactForm" action="mailto:<%= profile.email %>" method="GET" enctype="text/plain">
+        <form class="contact-form" id="contactForm" data-email="<%= profile.email %>">
           <div class="form-row">
             <div class="form-group">
               <label for="name" class="form-label">Name</label>
