@@ -176,8 +176,8 @@ const profile = {
   gpa: "4.0",
   est1: "1320",
   est2: "1160",
-  github: "https://github.com/",
-  linkedin: "https://linkedin.com/in/",
+  github: "https://github.com/aliahmedd4",
+  linkedin: "https://www.linkedin.com/in/ali-ahmed46",
 };
 
 module.exports = { projects, skillGroups, languages, profile };
