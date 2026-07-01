@@ -158,12 +158,11 @@ const languages = [
 const profile = {
   name: "Ali Ahmed Mohamed Hassan",
   roles: [
-    "Python Developer",
-    "Data Scientist",
-    "Full-Stack Engineer",
-    "ML Enthusiast",
     "CS Student",
+    "ML & Full-Stack Developer",
+    "Based in Cairo, Egypt",
   ],
+  summary: "Computer Science student at the German International University (GIU) with hands-on experience in Python, Java, SQL, machine learning, and cryptography. Builds end-to-end solutions across AI-powered web platforms, ML models, data analysis pipelines, security systems, and full-stack apps.",
   location: "Cairo, Egypt",
   email: "ali4.hassan6@gmail.com",
   phone: "+20 1013837800",
@@ -180,4 +179,13 @@ const profile = {
   linkedin: "https://www.linkedin.com/in/ali-ahmed46",
 };
 
-module.exports = { projects, skillGroups, languages, profile };
+const extracurriculars = [
+  {
+    org: "El Ganan Orphanage",
+    role: "Volunteer",
+    period: "2022 – 2023",
+    description: "Supported children's educational and recreational activities as part of a community outreach initiative, contributing to tutoring sessions and social development programs.",
+  },
+];
+
+module.exports = { projects, skillGroups, languages, profile, extracurriculars };

@@ -1,24 +1,19 @@
 <%- include('partials/header') %>
 
 <section class="page-hero">
-  <div class="container">
-    <div class="page-hero-content">
-      <span class="section-tag reveal">Portfolio</span>
-      <h1 class="page-title reveal">All Projects</h1>
-      <p class="page-sub reveal">
-        <%= projects.length %> projects across ML, cryptography, full-stack dev, and game engineering.
-      </p>
-    </div>
+  <div class="page-hero-inner">
+    <p class="section-label reveal">Portfolio</p>
+    <h1 class="page-title reveal">Projects</h1>
+    <p class="page-sub reveal"><%= projects.length %> projects across ML, cryptography, web development, and game engineering.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
 
-    <!-- Filter bar -->
     <div class="filter-bar reveal">
       <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="ML">ML & Data</button>
+      <button class="filter-btn" data-filter="ML">ML &amp; Data</button>
       <button class="filter-btn" data-filter="Full-Stack">Full-Stack</button>
       <button class="filter-btn" data-filter="Security">Security</button>
       <button class="filter-btn" data-filter="Python">Python</button>
@@ -28,24 +23,40 @@
 
     <div class="projects-grid projects-grid-full" id="projectsGrid">
       <% projects.forEach((project, i) => { %>
-      <article class="project-card reveal" data-tags="<%= project.tags.join(',') %>" data-category="<%= project.category %>" style="--delay: <%= (i % 3) * 0.08 %>s">
+      <article class="project-card <%= project.id === 1 ? 'project-card--featured' : 'reveal' %>"
+        data-tags="<%= project.tags.join(',') %>"
+        data-category="<%= project.category %>"
+        style="<%= project.id !== 1 ? '--delay: ' + ((i % 3) * 0.07) + 's' : '' %>">
+        <% if (project.id === 1) { %>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="card-category"><%= project.category %></span>
+            <span class="card-num">#<%= String(project.id).padStart(2, '0') %></span>
+          </div>
+          <h2 class="card-title"><%= project.title %></h2>
+          <p class="card-desc"><%= project.description %></p>
+          <div class="card-tags">
+            <% project.tags.forEach(tag => { %><span class="tag"><%= tag %></span><% }) %>
+          </div>
+        </div>
+        <span class="card-featured-badge">Featured</span>
+        <% } else { %>
         <div class="card-top">
           <span class="card-category"><%= project.category %></span>
-          <span class="card-num">#<%= String(project.id).padStart(2,'0') %></span>
+          <span class="card-num">#<%= String(project.id).padStart(2, '0') %></span>
         </div>
         <h3 class="card-title"><%= project.title %></h3>
         <p class="card-desc"><%= project.description %></p>
         <div class="card-tags">
-          <% project.tags.forEach(tag => { %>
-          <span class="tag" data-tag="<%= tag %>"><%= tag %></span>
-          <% }) %>
+          <% project.tags.forEach(tag => { %><span class="tag"><%= tag %></span><% }) %>
         </div>
+        <% } %>
       </article>
       <% }) %>
     </div>
 
     <div class="no-results" id="noResults" style="display:none">
-      <p>No projects match that filter.</p>
+      No projects match that filter.
     </div>
 
   </div>

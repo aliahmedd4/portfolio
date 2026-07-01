@@ -2,157 +2,92 @@
 
 <!-- HERO -->
 <section class="hero" id="hero">
-  <div class="hero-bg-grid"></div>
-  <div class="hero-container">
-    <div class="hero-badge fade-in">
-      <span class="badge-dot"></span>
-      Available for opportunities
-    </div>
-    <h1 class="hero-name fade-in">
-      Ali<br /><span class="name-accent">Hassan</span>
-    </h1>
+  <div class="hero-inner">
+    <p class="hero-eyebrow fade-in">Available for opportunities &middot; Cairo, Egypt</p>
+    <h1 class="hero-name fade-in">Ali<br/>Hassan</h1>
     <div class="hero-typing-wrapper fade-in">
-      <span class="typing-prefix">I'm a </span>
+      <span class="typing-prefix">// </span>
       <span class="typing-text" id="typingText" data-roles='<%- JSON.stringify(profile.roles) %>'></span>
-      <span class="typing-cursor">|</span>
+      <span class="typing-cursor">_</span>
     </div>
-    <p class="hero-desc fade-in">
-      Computer Science student at <strong>GIU Cairo</strong> — building ML pipelines,
-      full-stack platforms, and cryptographic systems. GPA <strong>4.0</strong> · EST I <strong>1320</strong>.
-    </p>
+    <p class="hero-summary fade-in"><%= profile.summary %></p>
     <div class="hero-cta fade-in">
       <a href="/projects" class="btn btn-primary">View Projects</a>
-      <a href="/contact" class="btn btn-outline">Contact Me</a>
+      <a href="/resume" class="btn btn-outline">Download CV ↓</a>
+      <a href="/contact" class="btn btn-ghost">Contact Me</a>
     </div>
-    <div class="hero-stats fade-in">
-      <div class="stat-item">
-        <span class="stat-number">10+</span>
-        <span class="stat-label">Projects</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <span class="stat-number">4.0</span>
-        <span class="stat-label">GPA</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <span class="stat-number">6+</span>
-        <span class="stat-label">Tech Stacks</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <span class="stat-number">4</span>
-        <span class="stat-label">Languages</span>
-      </div>
-    </div>
-  </div>
-  <div class="hero-scroll-indicator">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
   </div>
 </section>
+
+<!-- TECH MARQUEE -->
+<div class="marquee-section" aria-hidden="true">
+  <div class="marquee-track">
+    <% const techItems = ['Python', 'Java', 'JavaScript', 'SQL', 'C#', 'C++', 'Unity', 'Node.js', 'Scikit-learn', 'Pandas', 'MySQL', 'Git', 'Hugging Face', 'Machine Learning', 'Cryptography', 'MapReduce']; %>
+    <% [...techItems, ...techItems].forEach(item => { %>
+      <span class="marquee-item"><%= item %></span><span class="marquee-dot"></span>
+    <% }) %>
+  </div>
+</div>
 
 <!-- FEATURED PROJECTS -->
 <section class="section" id="featured">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-tag">Selected Work</span>
+      <p class="section-label">Selected Work</p>
       <h2 class="section-title">Featured Projects</h2>
-      <p class="section-sub">A snapshot of what I've built — from ML classifiers to full-stack platforms.</p>
+      <p class="section-sub">A selection of what I've built — spanning ML, full-stack, security, and game development.</p>
     </div>
     <div class="projects-grid">
       <% projects.filter(p => p.featured).forEach((project, i) => { %>
-      <article class="project-card reveal" style="--delay: <%= i * 0.1 %>s">
+      <article class="project-card reveal" style="--delay: <%= i * 0.08 %>s">
         <div class="card-top">
           <span class="card-category"><%= project.category %></span>
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 7l-10 10M7 7h10v10"/></svg>
-          </div>
+          <span class="card-num">#<%= String(project.id).padStart(2, '0') %></span>
         </div>
         <h3 class="card-title"><%= project.title %></h3>
         <p class="card-desc"><%= project.description %></p>
         <div class="card-tags">
-          <% project.tags.forEach(tag => { %>
-          <span class="tag"><%= tag %></span>
-          <% }) %>
+          <% project.tags.forEach(tag => { %><span class="tag"><%= tag %></span><% }) %>
         </div>
       </article>
       <% }) %>
     </div>
     <div class="section-footer reveal">
-      <a href="/projects" class="btn btn-outline">View All 10 Projects →</a>
+      <a href="/projects" class="btn btn-outline">All Projects &rarr;</a>
     </div>
   </div>
 </section>
 
-<!-- ABOUT STRIP -->
-<section class="about-strip">
+<!-- QUICK ABOUT -->
+<section class="section section-alt">
   <div class="container">
-    <div class="about-grid reveal">
-      <div class="about-text">
-        <span class="section-tag">About Me</span>
-        <h2 class="section-title">CS Student.<br/>Builder. Researcher.</h2>
-        <p>I'm a first-year Computer Science student at the <strong>German International University in Cairo</strong>, with a 4.0 GPA. My work spans machine learning, cryptographic implementations, full-stack development, and game engineering.</p>
-        <p>I bridge theory and practice — whether training classifiers on clinical data, implementing DES from scratch, or architecting database systems.</p>
-        <div class="about-meta">
-          <div class="meta-item">
-            <span class="meta-label">University</span>
-            <span class="meta-value">GIU Cairo — B.Sc. CS</span>
-          </div>
-          <div class="meta-item">
-            <span class="meta-label">Location</span>
-            <span class="meta-value">Cairo, Egypt</span>
-          </div>
-          <div class="meta-item">
-            <span class="meta-label">GPA</span>
-            <span class="meta-value">4.0 / 4.0</span>
-          </div>
+    <div class="about-grid">
+      <div class="reveal">
+        <p class="section-label">About</p>
+        <h2 class="section-title" style="font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 1.5rem; line-height: 1.2;">CS Student.<br/>Builder. Researcher.</h2>
+        <div class="about-bio">
+          <p>I'm a first-year Computer Science student at the <strong>German International University in Cairo</strong>, with a 4.0 GPA. My work spans machine learning, cryptographic implementations, full-stack development, and game engineering.</p>
+          <p>I bridge theory and practice — whether training classifiers on clinical data, implementing DES from scratch, or architecting complete database systems.</p>
         </div>
-        <a href="/skills" class="btn btn-primary" style="margin-top:2rem">Explore My Skills</a>
+        <a href="/about" class="btn btn-outline" style="margin-top: 2rem">Learn More &rarr;</a>
       </div>
-      <div class="about-langs">
-        <h3 class="langs-title">Human Languages</h3>
-        <% languages.forEach(lang => { %>
-        <div class="lang-item reveal">
-          <div class="lang-header">
-            <span class="lang-name"><%= lang.name %></span>
-            <span class="lang-level"><%= lang.level %></span>
+      <div class="reveal">
+        <p class="section-label" style="margin-bottom: 1.5rem">Human Languages</p>
+        <div class="lang-list">
+          <% languages.forEach(lang => { %>
+          <div class="lang-item">
+            <div class="lang-meta">
+              <span class="lang-name"><%= lang.name %></span>
+              <span class="lang-level"><%= lang.level %></span>
+            </div>
+            <span class="lang-pct"><%= lang.percent %>%</span>
+            <div class="lang-bar">
+              <div class="lang-fill" data-width="<%= lang.percent %>"></div>
+            </div>
           </div>
-          <div class="lang-bar">
-            <div class="lang-fill" data-width="<%= lang.percent %>"></div>
-          </div>
-        </div>
-        <% }) %>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS TEASER -->
-<section class="section">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-tag">Capabilities</span>
-      <h2 class="section-title">Skills Snapshot</h2>
-    </div>
-    <div class="skills-teaser reveal">
-      <% skillGroups.forEach(group => { %>
-      <div class="skill-teaser-group">
-        <span class="skill-group-icon"><%= group.icon %></span>
-        <span class="skill-group-name"><%= group.group %></span>
-        <div class="teaser-tags">
-          <% group.skills.slice(0, 4).forEach(skill => { %>
-          <span class="tag tag-sm"><%= skill %></span>
           <% }) %>
-          <% if (group.skills.length > 4) { %>
-          <span class="tag tag-sm tag-more">+<%= group.skills.length - 4 %></span>
-          <% } %>
         </div>
       </div>
-      <% }) %>
-    </div>
-    <div class="section-footer reveal">
-      <a href="/skills" class="btn btn-outline">Full Skills Breakdown →</a>
     </div>
   </div>
 </section>

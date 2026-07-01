@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const path = require("path");
-const { projects, skillGroups, languages, profile } = require("./data/data");
+const { projects, skillGroups, languages, profile, extracurriculars } = require("./data/data");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -10,7 +10,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 
-const siteData = { projects, skillGroups, languages, profile };
+const siteData = { projects, skillGroups, languages, profile, extracurriculars };
 
 app.get("/", (req, res) => {
   res.render("index", {
@@ -33,6 +33,14 @@ app.get("/skills", (req, res) => {
     ...siteData,
     currentPath: "/skills",
     pageTitle: "Skills — Ali Hassan",
+  });
+});
+
+app.get("/about", (req, res) => {
+  res.render("about", {
+    ...siteData,
+    currentPath: "/about",
+    pageTitle: "About — Ali Hassan",
   });
 });
 

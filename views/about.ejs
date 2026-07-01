@@ -1,0 +1,116 @@
+<%- include('partials/header') %>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <p class="section-label reveal">About</p>
+    <h1 class="page-title reveal">Ali Hassan</h1>
+    <p class="page-sub reveal">CS Student &middot; ML &amp; Full-Stack Developer &middot; Cairo, Egypt</p>
+  </div>
+</section>
+
+<!-- BIO -->
+<section class="section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="reveal">
+        <p class="section-label">Bio</p>
+        <h2 class="section-title" style="font-size: clamp(1.5rem, 2.5vw, 2rem); margin-bottom: 1.5rem; line-height: 1.2;">Builder.<br/>Researcher.<br/>Coder.</h2>
+        <div class="about-bio">
+          <p>I'm a first-year Computer Science student at the <strong>German International University in Cairo</strong>, with a 4.0 GPA and an EST I score of 1320.</p>
+          <p>My work spans machine learning, cryptographic implementations, full-stack web development, and game engineering. I build end-to-end solutions — from training ML classifiers on clinical datasets to implementing DES encryption from scratch to architecting complete HR database systems.</p>
+          <p>I speak Arabic (native), English (fluent), French (conversational), and am currently learning German (A2).</p>
+        </div>
+      </div>
+      <div class="reveal">
+        <p class="section-label" style="margin-bottom: 1.5rem">Human Languages</p>
+        <div class="lang-list">
+          <% languages.forEach(lang => { %>
+          <div class="lang-item">
+            <div class="lang-meta">
+              <span class="lang-name"><%= lang.name %></span>
+              <span class="lang-level"><%= lang.level %></span>
+            </div>
+            <span class="lang-pct"><%= lang.percent %>%</span>
+            <div class="lang-bar">
+              <div class="lang-fill" data-width="<%= lang.percent %>"></div>
+            </div>
+          </div>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-label">Background</p>
+      <h2 class="section-title">Education</h2>
+    </div>
+    <div class="edu-timeline">
+      <div class="edu-item reveal">
+        <span class="edu-year">2024 &ndash; Present</span>
+        <div class="edu-content">
+          <h3 class="edu-title"><%= profile.university %></h3>
+          <p class="edu-sub"><%= profile.degree %></p>
+          <div class="edu-badges">
+            <span class="edu-badge">GPA <%= profile.gpa %></span>
+            <span class="edu-badge">EST I <%= profile.est1 %></span>
+            <span class="edu-badge">EST II <%= profile.est2 %></span>
+          </div>
+        </div>
+      </div>
+      <div class="edu-item reveal">
+        <span class="edu-year">2024</span>
+        <div class="edu-content">
+          <h3 class="edu-title"><%= profile.highSchool %></h3>
+          <p class="edu-sub"><%= profile.diploma %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-label">Capabilities</p>
+      <h2 class="section-title">Skills &amp; Tools</h2>
+    </div>
+    <div class="skills-section-grid reveal">
+      <% skillGroups.forEach(group => { %>
+      <div class="skill-block">
+        <p class="skill-block-title"><%= group.group %></p>
+        <div class="skill-tags">
+          <% group.skills.forEach(skill => { %><span class="tag"><%= skill %></span><% }) %>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<!-- EXTRACURRICULARS -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-label">Beyond Code</p>
+      <h2 class="section-title">Extracurriculars</h2>
+    </div>
+    <div class="extra-grid">
+      <% extracurriculars.forEach(item => { %>
+      <div class="extra-card reveal">
+        <p class="extra-role"><%= item.role %></p>
+        <h3 class="extra-org"><%= item.org %></h3>
+        <p class="extra-period"><%= item.period %></p>
+        <p class="extra-desc"><%= item.description %></p>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>
