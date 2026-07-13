@@ -172,6 +172,22 @@
 })();
 
 /* =============================================
+   PROJECT CARD — click to open GitHub repo
+   ============================================= */
+(function () {
+  const cards = document.querySelectorAll(".project-card--link");
+  cards.forEach((card) => {
+    const url = card.dataset.link;
+    if (!url) return;
+    card.addEventListener("click", (e) => {
+      // Don't double-open when the inner link itself is clicked.
+      if (e.target.closest("a")) return;
+      window.open(url, "_blank", "noopener");
+    });
+  });
+})();
+
+/* =============================================
    CONTACT FORM — mailto builder
    ============================================= */
 (function () {

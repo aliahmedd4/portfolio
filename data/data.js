@@ -16,6 +16,7 @@ const projects = [
     description:
       "ML pipeline on a messy clinical dataset with missing values and mixed features. Benchmarked Logistic Regression, Random Forest, and SVM — evaluated with cross-validation and F1-score.",
     featured: true,
+    link: "https://github.com/aliahmedd4/metabolic-syndrome-classifier",
   },
   {
     id: 3,
@@ -34,6 +35,7 @@ const projects = [
     description:
       "Analyzed player metrics — goals, assists, pass accuracy, defensive contributions — across positions and seasons to identify top performers and trends.",
     featured: false,
+    link: "https://github.com/aliahmedd4/fifa-player-value-analysis",
   },
   {
     id: 5,
@@ -43,6 +45,7 @@ const projects = [
     description:
       "Normalized relational HR database covering employees, departments, salaries, and contracts. Web interface for CRUD operations, report generation, and role-based data access.",
     featured: true,
+    link: "https://github.com/aliahmedd4/HR-Database-System",
   },
   {
     id: 6,

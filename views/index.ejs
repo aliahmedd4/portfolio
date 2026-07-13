@@ -39,7 +39,9 @@
     </div>
     <div class="projects-grid">
       <% projects.filter(p => p.featured).forEach((project, i) => { %>
-      <article class="project-card reveal" style="--delay: <%= i * 0.08 %>s">
+      <article class="project-card reveal <%= project.link ? 'project-card--link' : '' %>"
+        <% if (project.link) { %>data-link="<%= project.link %>"<% } %>
+        style="--delay: <%= i * 0.08 %>s">
         <div class="card-top">
           <span class="card-category"><%= project.category %></span>
           <span class="card-num">#<%= String(project.id).padStart(2, '0') %></span>
@@ -49,6 +51,9 @@
         <div class="card-tags">
           <% project.tags.forEach(tag => { %><span class="tag"><%= tag %></span><% }) %>
         </div>
+        <% if (project.link) { %>
+        <a class="card-link" href="<%= project.link %>" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+        <% } %>
       </article>
       <% }) %>
     </div>

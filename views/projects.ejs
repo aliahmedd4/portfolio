@@ -23,9 +23,10 @@
 
     <div class="projects-grid projects-grid-full" id="projectsGrid">
       <% projects.forEach((project, i) => { %>
-      <article class="project-card <%= project.id === 1 ? 'project-card--featured' : 'reveal' %>"
+      <article class="project-card <%= project.id === 1 ? 'project-card--featured' : 'reveal' %> <%= project.link ? 'project-card--link' : '' %>"
         data-tags="<%= project.tags.join(',') %>"
         data-category="<%= project.category %>"
+        <% if (project.link) { %>data-link="<%= project.link %>"<% } %>
         style="<%= project.id !== 1 ? '--delay: ' + ((i % 3) * 0.07) + 's' : '' %>">
         <% if (project.id === 1) { %>
         <div class="card-body">
@@ -38,6 +39,9 @@
           <div class="card-tags">
             <% project.tags.forEach(tag => { %><span class="tag"><%= tag %></span><% }) %>
           </div>
+          <% if (project.link) { %>
+          <a class="card-link" href="<%= project.link %>" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+          <% } %>
         </div>
         <span class="card-featured-badge">Featured</span>
         <% } else { %>
@@ -50,6 +54,9 @@
         <div class="card-tags">
           <% project.tags.forEach(tag => { %><span class="tag"><%= tag %></span><% }) %>
         </div>
+        <% if (project.link) { %>
+        <a class="card-link" href="<%= project.link %>" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+        <% } %>
         <% } %>
       </article>
       <% }) %>
